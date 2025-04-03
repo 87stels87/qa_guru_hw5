@@ -34,3 +34,16 @@ def test_filling_all_fields(browser_setup):
     browser.element('#react-select-4-option-0').click()
     browser.element('#submit').click()
     browser.element('#example-modal-sizes-title-lg').should(have.exact_text('Thanks for submitting the form'))
+    browser.element('table').all('tr').should(have.exact_texts(
+        'Label Values',
+        'Student Name Иван Иванов',
+        'Student Email ivanov@ya.ru',
+        'Gender Female',
+        'Mobile 1234567890',
+        'Date of Birth 02 March,2000',
+        'Subjects Accounting',
+        'Hobbies Reading',
+        'Picture picture.jpeg',
+        'Address Москва',
+        'State and City NCR Delhi')
+    )
